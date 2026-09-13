@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TacoGroup | SharkNetwork</title>
+    <style>
+      :root {
+        --bg: #fff7ef;
+        --panel: #fffdfb;
+        --ink: #1d1a17;
+        --muted: #655d57;
+        --line: rgba(29, 26, 23, 0.14);
+        --accent: #d9682d;
+        --accent-soft: #f6d7bb;
+        --shadow: 0 18px 48px rgba(29, 26, 23, 0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+      .topbar {
+        position: sticky; top: 0; z-index: 10;
+        backdrop-filter: blur(12px); background: rgba(255,247,239,0.75);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        min-height: 78px; display: flex; justify-content: space-between; align-items: center;
+      }
+      .brand { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.78rem; font-weight: 700; }
+      .nav-links { display: flex; gap: 20px; color: var(--muted); font-size: 0.9rem; }
+      .button {
+        display: inline-flex; align-items: center; justify-content: center;
+        border-radius: 999px; padding: 0.85rem 1.35rem; font-weight: 600;
+        border: 1px solid var(--ink); background: var(--ink); color: #fff; 
+      }
+      .hero {
+        padding: 72px 0 32px;
+      }
+      .hero-grid {
+        display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
+      }
+      .eyebrow {
+        display: inline-block; padding: 0.45rem 0.75rem; border: 1px solid var(--line);
+        border-radius: 999px; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.68rem; color: var(--muted);
+      }
+      h1 {
+        font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.94; letter-spacing: -0.06em;
+        margin: 22px 0 18px;
+      }
+      p { color: var(--muted); font-size: 1.05rem; }
+      .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+      .secondary {
+        background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 0.9rem 1.3rem; font-weight: 600;
+      }
+      .visual {
+        min-height: 540px; position: relative; border-radius: 30px; overflow: hidden;
+        background: linear-gradient(135deg, #f3d9c7, #fffaf4 40%, #efcaa5);
+        border: 1px solid rgba(29,26,23,0.08); box-shadow: var(--shadow);
+      }
+      .visual::before, .visual::after {
+        content: ""; position: absolute; border-radius: 26px; border: 1px solid rgba(29,26,23,0.08);
+      }
+      .visual::before {
+        width: 230px; height: 310px; right: 14%; bottom: 13%; transform: rotate(16deg);
+        background: rgba(255,255,255,0.5);
+      }
+      .visual::after {
+        width: 180px; height: 220px; left: 16%; bottom: 18%; transform: rotate(-10deg);
+        background: rgba(255,255,255,0.48);
+      }
+      .badge {
+        position: absolute; left: 18px; bottom: 18px; padding: 0.8rem 1rem; border-radius: 18px;
+        background: rgba(255,255,255,0.6); border: 1px solid rgba(29,26,23,0.08); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.76rem;
+      }
+      .section { padding: 42px 0; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+      .card {
+        padding: 24px; border-radius: 24px; background: rgba(255,255,255,0.35); border: 1px solid var(--line);
+      }
+      .card h3 { margin: 0 0 10px; font-size: 1.5rem; letter-spacing: -0.04em; }
+      .label { color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.7rem; margin-bottom: 12px; }
+      .cta-panel {
+        margin-top: 24px; padding: clamp(24px, 4vw, 48px); border-radius: 28px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(246, 215, 187, 0.45)); border: 1px solid var(--line);
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      }
+      footer { padding: 28px 0 60px; color: var(--muted); }
+      .footer-row { border-top: 1px solid var(--line); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; }
+      @media (max-width: 800px) { .hero-grid, .grid { grid-template-columns: 1fr; } .nav-links { display: none; } .cta-panel { flex-direction: column; align-items: flex-start; } }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a href="index.html" class="brand">SharkNetwork</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="tacogroup.html">TacoGroup</a>
+          <a href="sharklaw.html">SharkLaw</a>
+          <a href="acm.html">ACM</a>
+        </nav>
+        <a href="mailto:hello@tacogroup.example" class="button">Order / Enquire</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Fresh • Fast • Familiar</span>
+            <h1>TacoGroup.</h1>
+            <p>From quick lunches to late-night favourites, TacoGroup brings vibrant food culture, warm service, and repeatable flavour to communities who like their meals memorable.</p>
+            <div class="cta-row">
+              <a href="mailto:hello@tacogroup.example" class="button">Book a catering enquiry</a>
+              <a href="index.html" class="secondary">Back to SharkNetwork</a>
+            </div>
+          </div>
+          <div class="visual" aria-label="TacoGroup illustration"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="grid">
+          <article class="card">
+            <div class="label">Signature</div>
+            <h3>Bold flavour</h3>
+            <p>Comfort-first recipes and fast-moving menu staples built for repeat customers and busy teams.</p>
+          </article>
+          <article class="card">
+            <div class="label">Experience</div>
+            <h3>Casual energy</h3>
+            <p>Warm hospitality, quick turnover, and a memorable atmosphere designed around community dining.</p>
+          </article>
+          <article class="card">
+            <div class="label">Offers</div>
+            <h3>Events & catering</h3>
+            <p>From office lunches to social gatherings, TacoGroup makes group food feel easy and exciting.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="cta-panel">
+          <div>
+            <div class="label">Let’s eat well together</div>
+            <h2 style="margin:0 0 8px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing:-0.06em;">Big taste. Easy service.</h2>
+            <p>Tailored for teams, events, and everyday cravings.</p>
+          </div>
+          <a href="mailto:hello@tacogroup.example" class="button">Contact TacoGroup</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div class="brand">SharkNetwork</div>
+        <div>Container for TacoGroup, SharkLaw, and ACM</div>
+      </div>
+    </footer>
+  </body>
+</html>
