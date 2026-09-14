@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title">
+  <title id="title">TacoGroup food artwork</title>
+  <rect width="900" height="900" fill="#f2683a"/>
+  <circle cx="690" cy="180" r="180" fill="#d84931"/><circle cx="100" cy="790" r="230" fill="#ffb84f"/>
+  <path d="M178 550c25-150 155-247 303-247s278 97 303 247" fill="#fff4dc" stroke="#102a2e" stroke-width="18"/>
+  <path d="m222 548 50 108 65-68 72 70 70-96 70 82 61-58 51 92" fill="none" stroke="#f2b84b" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="110" fill="#fff4dc" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="8">FRESH / FAST / FAMILIAR</text>
+</svg>

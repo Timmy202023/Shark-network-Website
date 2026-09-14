@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" role="img" aria-labelledby="title desc">
+  <title id="title">TacoGroup logo</title>
+  <desc id="desc">TacoGroup wordmark with a stylized taco.</desc>
+  <rect width="400" height="120" rx="30" fill="#f2683a"/>
+  <path d="M35 62c5-24 26-39 48-39s43 15 48 39" fill="none" stroke="#fff4dc" stroke-width="12" stroke-linecap="round"/>
+  <path d="m46 61 11 20 12-13 14 14 12-18 13 11" fill="none" stroke="#ffd66d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="154" y="72" fill="#fff4dc" font-family="Georgia, serif" font-size="38" font-weight="700">TacoGroup</text>
+</svg>

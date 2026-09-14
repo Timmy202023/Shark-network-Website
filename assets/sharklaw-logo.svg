@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-labelledby="title desc">
+  <title id="title">SharkLaw logo</title>
+  <desc id="desc">SharkLaw wordmark with a balanced scales symbol.</desc>
+  <rect width="360" height="120" rx="30" fill="#183b45"/>
+  <path d="M57 27v59M35 42h44M42 42 29 66c8 9 18 9 26 0L42 42Zm30 0L59 66c8 9 18 9 26 0L72 42ZM42 87h30" fill="none" stroke="#e8c07a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="112" y="73" fill="#f5f0e8" font-family="Georgia, serif" font-size="43" font-weight="700">SharkLaw</text>
+</svg>

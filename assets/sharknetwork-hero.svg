@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title">
+  <title id="title">SharkNetwork connected brands artwork</title>
+  <rect width="900" height="900" fill="#102a2e"/>
+  <path d="M0 680 260 420l180 180L690 190l210 220v490H0Z" fill="#17434a"/>
+  <path d="M155 600 450 220l295 380" fill="none" stroke="#f2b84b" stroke-width="10"/>
+  <circle cx="155" cy="600" r="28" fill="#f2683a"/><circle cx="450" cy="220" r="28" fill="#f2b84b"/><circle cx="745" cy="600" r="28" fill="#e8c07a"/>
+  <text x="76" y="805" fill="#f5f0e8" font-family="Arial, sans-serif" font-size="31" letter-spacing="7">ONE NETWORK / THREE DIRECTIONS</text>
+</svg>

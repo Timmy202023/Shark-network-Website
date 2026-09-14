@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-labelledby="title desc">
+  <title id="title">ACM logo</title>
+  <desc id="desc">ACM wordmark with a simple materials mark.</desc>
+  <rect width="360" height="120" rx="30" fill="#395b52"/>
+  <path d="M32 78h80M32 60h58M32 42h36" fill="none" stroke="#f1c26b" stroke-width="8" stroke-linecap="square"/>
+  <text x="143" y="74" fill="#f5f0e8" font-family="Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="6">ACM</text>
+</svg>

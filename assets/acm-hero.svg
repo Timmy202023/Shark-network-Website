@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title">
+  <title id="title">ACM materials artwork</title>
+  <rect width="900" height="900" fill="#395b52"/>
+  <path d="M0 650 225 420l165 150 160-210 350 290v250H0Z" fill="#294943"/>
+  <path d="M123 690h660M190 565h510M270 440h360" stroke="#f1c26b" stroke-width="28" stroke-linecap="square"/>
+  <path d="m145 690 110-250 110 250M535 690l105-250 110 250" fill="none" stroke="#f5f0e8" stroke-width="18" stroke-linejoin="round"/>
+  <text x="76" y="110" fill="#f5f0e8" font-family="Arial, sans-serif" font-size="37" font-weight="700" letter-spacing="6">MATERIALS / MOMENTUM</text>
+</svg>
