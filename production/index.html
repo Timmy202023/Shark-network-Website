@@ -5,69 +5,407 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SharkNetwork</title>
     <meta name="description" content="SharkNetwork is the umbrella brand for TacoGroup, SharkLaw, and ACM." />
+    <link rel="stylesheet" href="theme.css" />
     <style>
-      :root {
-        --bg: #f5f0e8;
-        --panel: #f9f5f1;
-        --card: #f1e7dd;
-        --ink: #171716;
-        --muted: #5f5a55;
-        --line: rgba(23, 23, 22, 0.14);
-        --accent: #b88c5a;
-        --shadow: 0 20px 60px rgba(23, 23, 22, 0.08);
+      /* ==========================================================================
+         1. Design Tokens & Theme Variables
+         ========================================================================== */
+      /* Note: Core color tokens and palette variables are defined in theme.css */
+
+      /* ==========================================================================
+         2. Base & Reset Styles
+         ========================================================================== */
+      * {
+        box-sizing: border-box;
       }
-      * { box-sizing: border-box; }
+
       body {
-        margin: 0; font-family: Inter, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6;
+        margin: 0;
+        font-family: Inter, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
       }
-      a { color: inherit; text-decoration: none; }
-      .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ==========================================================================
+         3. Layout Components
+         ========================================================================== */
+      .container {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      /* ==========================================================================
+         4. Navigation & Header
+         ========================================================================== */
       .site-header {
-        position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
-        background: rgba(245, 240, 232, 0.72); border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(12px);
+        background: var(--header-bg);
+        border-bottom: 1px solid var(--line);
       }
-      .nav { display: flex; align-items: center; justify-content: space-between; min-height: 78px; }
-      .brand { display: inline-flex; align-items: center; gap: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.76rem; font-weight: 700; }
-      .brand-mark { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--ink); position: relative; background: linear-gradient(135deg, var(--card), #efe4d6); }
-      .brand-mark::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: rgba(23, 23, 22, 0.82); }
-      .nav-links { display: flex; gap: 24px; color: var(--muted); font-size: 0.9rem; }
-      .nav-button, .primary-button, .ghost-button {
-        display: inline-flex; justify-content: center; align-items: center; border-radius: 999px; transition: all 180ms ease; cursor: pointer;
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
       }
-      .nav-button, .primary-button { background: var(--ink); color: #f8f4f0; border: 1px solid var(--ink); padding: 0.9rem 1.4rem; font-weight: 600; }
-      .primary-button:hover, .nav-button:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-      .ghost-button { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 0.9rem 1.3rem; font-weight: 500; }
-      .hero { padding: 72px 0 48px; }
-      .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; align-items: center; }
-      .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 0.45rem 0.8rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--muted); }
-      .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-      h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 0.94; letter-spacing: -0.065em; margin: 22px 0 20px; font-weight: 700; }
-      .hero-copy p { max-width: 560px; font-size: 1.08rem; color: var(--muted); margin: 0 0 30px; }
-      .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
-      .meta { display: flex; gap: 24px; flex-wrap: wrap; color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
-      .brand-panel { position: relative; background: linear-gradient(160deg, #efe3d6, #f7f1ea 60%, #eadcc8); border: 1px solid rgba(23,23,22,0.06); border-radius: 28px; min-height: 620px; box-shadow: var(--shadow); overflow: hidden; }
-      .brand-panel::before, .brand-panel::after { content: ""; position: absolute; border-radius: 22px; background: rgba(255,255,255,0.55); border: 1px solid rgba(23,23,22,0.08); }
-      .brand-panel::before { width: 210px; height: 290px; right: 14%; bottom: 18%; transform: rotate(16deg); }
-      .brand-panel::after { width: 180px; height: 220px; left: 12%; bottom: 16%; transform: rotate(-12deg); }
-      .badge { position: absolute; left: 22px; bottom: 22px; padding: 0.8rem 1rem; border: 1px solid rgba(23,23,22,0.12); background: rgba(255,255,255,0.48); border-radius: 18px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
-      .section { padding: 48px 0; }
-      .label { margin-bottom: 18px; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; }
-      .section-header h2 { margin: 0 0 20px; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.02; letter-spacing: -0.06em; }
-      .section-header p { color: var(--muted); font-size: 1.02rem; }
-      .brand-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 26px; }
-      .brand-card { padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,0.28); }
-      .brand-card h3 { margin: 0 0 10px; font-size: 1.6rem; letter-spacing: -0.04em; }
-      .brand-card p { color: var(--muted); margin: 0; }
-      .tag { display: inline-block; margin-bottom: 12px; color: var(--muted); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
-      .cta-panel { margin-top: 24px; padding: clamp(28px, 4vw, 56px); border-radius: 32px; border: 1px solid rgba(23,23,22,0.08); background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(220, 202, 181, 0.28)); display: flex; justify-content: space-between; align-items: center; gap: 18px; }
-      .cta-panel h2 { margin: 0 0 8px; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -0.06em; }
-      .footer { padding: 26px 0 70px; color: var(--muted); }
-      .footer-row { border-top: 1px solid var(--line); padding-top: 22px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-      @media (max-width: 900px) { .hero-grid, .brand-grid { grid-template-columns: 1fr; } .nav-links { display: none; } .cta-panel { flex-direction: column; align-items: flex-start; } }
-      @media (max-width: 560px) { .nav { min-height: 70px; } .cta-row { flex-direction: column; align-items: stretch; } .primary-button, .ghost-button, .nav-button { width: 100%; } }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.76rem;
+        font-weight: 700;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1px solid var(--ink);
+        position: relative;
+        background: linear-gradient(135deg, var(--brand-mark-card, #f1e7dd), #efe4d6);
+      }
+
+      .brand-mark::before {
+        content: "";
+        position: absolute;
+        inset: 7px;
+        border-radius: 50%;
+        background: rgba(23, 23, 22, 0.82);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* ==========================================================================
+         5. Button Components
+         ========================================================================== */
+      .btn,
+      .primary-button,
+      .ghost-button,
+      .nav-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 999px;
+        transition: all 180ms ease;
+        cursor: pointer;
+      }
+
+      .btn-primary,
+      .primary-button,
+      .nav-button {
+        background: var(--ink);
+        color: var(--ink-contrast);
+        border: 1px solid var(--ink);
+        padding: 0.9rem 1.4rem;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover,
+      .primary-button:hover,
+      .nav-button:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-secondary,
+      .ghost-button {
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--ink);
+        padding: 0.9rem 1.3rem;
+        font-weight: 500;
+      }
+
+      /* ==========================================================================
+         6. Hero Section
+         ========================================================================== */
+      .hero {
+        padding: 72px 0 48px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 44px;
+        align-items: center;
+      }
+
+      .hero-eyebrow,
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--eyebrow-bg);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.68rem;
+        color: var(--muted);
+      }
+
+      .hero-eyebrow::before,
+      .eyebrow::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      h1 {
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+        margin: 22px 0 20px;
+        font-weight: 700;
+      }
+
+      .hero-copy p {
+        max-width: 560px;
+        font-size: 1.08rem;
+        color: var(--muted);
+        margin: 0 0 30px;
+      }
+
+      .hero-cta-row,
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .hero-brand-tags,
+      .meta {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-visual,
+      .brand-panel {
+        position: relative;
+        background: var(--visual-bg);
+        border: 1px solid rgba(23, 23, 22, 0.06);
+        border-radius: 28px;
+        min-height: 620px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero-visual::before,
+      .hero-visual::after,
+      .brand-panel::before,
+      .brand-panel::after {
+        content: "";
+        position: absolute;
+        border-radius: 22px;
+        background: var(--visual-shape-bg);
+        border: 1px solid var(--visual-shape-border);
+      }
+
+      .hero-visual::before,
+      .brand-panel::before {
+        width: 210px;
+        height: 290px;
+        right: 14%;
+        bottom: 18%;
+        transform: rotate(16deg);
+      }
+
+      .hero-visual::after,
+      .brand-panel::after {
+        width: 180px;
+        height: 220px;
+        left: 12%;
+        bottom: 16%;
+        transform: rotate(-12deg);
+      }
+
+      .hero-badge,
+      .badge {
+        position: absolute;
+        left: 22px;
+        bottom: 22px;
+        padding: 0.8rem 1rem;
+        border: 1px solid var(--badge-border);
+        background: var(--badge-bg);
+        border-radius: 18px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* ==========================================================================
+         7. Content Sections & Typography
+         ========================================================================== */
+      .section-label,
+      .label {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .section-header h2 {
+        margin: 0 0 20px;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        line-height: 1.02;
+        letter-spacing: -0.06em;
+      }
+
+      .section-header p {
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      /* ==========================================================================
+         8. Brand Portfolio Cards
+         ========================================================================== */
+      .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 26px;
+      }
+
+      .brand-card {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--card-bg);
+      }
+
+      .brand-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.6rem;
+        letter-spacing: -0.04em;
+      }
+
+      .brand-card p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .card-tag,
+      .tag {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* ==========================================================================
+         9. Call-To-Action (CTA) Banner
+         ========================================================================== */
+      .cta-panel {
+        margin-top: 24px;
+        padding: clamp(28px, 4vw, 56px);
+        border-radius: 32px;
+        border: 1px solid rgba(23, 23, 22, 0.08);
+        background: var(--cta-bg);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .cta-panel h2 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        letter-spacing: -0.06em;
+      }
+
+      /* ==========================================================================
+         10. Site Footer
+         ========================================================================== */
+      .footer {
+        padding: 26px 0 70px;
+        color: var(--muted);
+      }
+
+      .footer-row {
+        border-top: 1px solid var(--line);
+        padding-top: 22px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      /* ==========================================================================
+         11. Responsive Media Queries
+         ========================================================================== */
+      @media (max-width: 900px) {
+        .hero-grid,
+        .brand-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .cta-panel {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav {
+          min-height: 70px;
+        }
+
+        .hero-cta-row,
+        .cta-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn,
+        .primary-button,
+        .ghost-button,
+        .nav-button {
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- Site Navigation Header -->
     <header class="site-header">
       <div class="container nav">
         <a href="#top" class="brand" aria-label="SharkNetwork home">
@@ -79,68 +417,71 @@
           <a href="#brands">Brands</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a href="#brands" class="nav-button">Explore brands</a>
+        <a href="#brands" class="btn btn-primary">Explore brands</a>
       </div>
     </header>
 
     <main id="top">
+      <!-- Hero Section -->
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">One network. Three brands.</span>
+            <span class="hero-eyebrow">One network. Three brands.</span>
             <h1>SharkNetwork.</h1>
             <p>
               SharkNetwork is the umbrella platform connecting the different businesses within the group —
               from food and legal services to building materials and supply operations.
             </p>
-            <div class="cta-row">
-              <a href="#brands" class="primary-button">View brands</a>
-              <a href="#about" class="ghost-button">Our story</a>
+            <div class="hero-cta-row">
+              <a href="#brands" class="btn btn-primary">View brands</a>
+              <a href="#about" class="btn btn-secondary">Our story</a>
             </div>
-            <div class="meta">
+            <div class="hero-brand-tags">
               <span>TacoGroup</span>
               <span>SharkLaw</span>
               <span>ACM</span>
             </div>
           </div>
-          <div class="brand-panel" aria-label="SharkNetwork brand network panel">
-            <div class="badge">Built for community & commerce</div>
+          <div class="hero-visual" aria-label="SharkNetwork brand visual display">
+            <div class="hero-badge">Built for community & commerce</div>
           </div>
         </div>
       </section>
 
+      <!-- About Section -->
       <section id="about" class="section">
         <div class="container">
           <div class="section-header">
-            <div class="label">About</div>
+            <span class="section-label">About</span>
             <h2>Connected by design, built for real-world needs.</h2>
             <p>SharkNetwork brings together businesses with different strengths under one clear identity — practical, modern, and built around trust.</p>
           </div>
         </div>
       </section>
 
+      <!-- Brand Portfolio Section -->
       <section id="brands" class="section">
         <div class="container">
           <div class="section-header">
-            <div class="label">Brand portfolio</div>
+            <span class="section-label">Brand portfolio</span>
             <h2>Three businesses. One ecosystem.</h2>
           </div>
 
           <div class="brand-grid">
             <article class="brand-card">
-              <span class="tag">Food</span>
+              <span class="card-tag">Food</span>
               <h3><a href="tacogroup.html">TacoGroup</a></h3>
               <p>Fresh, vibrant food experiences built around flavour, speed, and community connection.</p>
             </article>
 
             <article class="brand-card">
-              <span class="tag">Legal</span>
+              <span class="card-tag">Legal</span>
               <h3><a href="sharklaw.html">SharkLaw</a></h3>
               <p>Practical legal guidance and strategic counsel for people and organisations navigating risk.</p>
             </article>
 
             <article class="brand-card">
-              <span class="tag">Wholesale</span>
+              <span class="card-tag">Wholesale</span>
               <h3><a href="acm.html">ACM</a></h3>
               <p>Material supply and construction support designed for reliability, scale, and project momentum.</p>
             </article>
@@ -148,20 +489,22 @@
         </div>
       </section>
 
+      <!-- Contact / CTA Section -->
       <section id="contact" class="section">
         <div class="container">
           <div class="cta-panel">
             <div>
-              <div class="label">SharkNetwork</div>
+              <span class="section-label">SharkNetwork</span>
               <h2>One umbrella. Many businesses.</h2>
               <p>Built to connect commerce, services, and communities under a single modern platform.</p>
             </div>
-            <a href="mailto:hello@sharknetwork.example" class="primary-button">hello@sharknetwork.example</a>
+            <a href="mailto:hello@sharknetwork.example" class="btn btn-primary">hello@sharknetwork.example</a>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Site Footer -->
     <footer class="footer">
       <div class="container footer-row">
         <div class="brand" aria-label="SharkNetwork footer brand">

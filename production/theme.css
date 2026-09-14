@@ -1,0 +1,53 @@
+/* ==========================================================================
+   SharkNetwork Unified Design Tokens & Theme Palette
+   ==========================================================================
+   All color values across SharkNetwork, ACM, SharkLaw, and TacoGroup
+   are centralized in this file.
+   
+   To adjust colors across the entire network or customize specific brands,
+   simply modify the variables below.
+   ========================================================================== */
+
+:root {
+  /* --- 1. Global Base Palette (Standardized Warm Beige) --- */
+  --bg: #f5f0e8;                         /* Core site-wide background (Warm linen beige) */
+  --header-bg: rgba(245, 240, 232, 0.78);/* Translucent sticky navigation header */
+  --ink: #171716;                        /* Primary typography & solid button fills */
+  --ink-contrast: #ffffff;               /* High-contrast text on dark button backgrounds */
+  --muted: #5f5a55;                      /* Secondary / muted paragraph text */
+  --line: rgba(23, 23, 22, 0.14);         /* Subtle borders & card dividers */
+  --shadow: 0 20px 60px rgba(23, 23, 22, 0.08); /* Soft elevation shadow */
+
+  /* --- 2. Surface & Component Colors --- */
+  --card-bg: rgba(255, 255, 255, 0.35);  /* Feature & brand card backgrounds */
+  --badge-bg: rgba(255, 255, 255, 0.55); /* Hero badge background */
+  --badge-border: rgba(23, 23, 22, 0.10);/* Hero badge border */
+  --eyebrow-bg: rgba(255, 255, 255, 0.25);/* Eyebrow pill background */
+  --brand-mark-card: #f1e7dd;            /* Brand logo circle gradient token */
+
+  /* --- 3. Unified Gradients --- */
+  --cta-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.45), rgba(220, 202, 181, 0.35));
+  --visual-bg: linear-gradient(145deg, #efe3d6, #f7f1ea 50%, #eadcc8);
+  --visual-shape-bg: rgba(255, 255, 255, 0.52);
+  --visual-shape-border: rgba(23, 23, 22, 0.08);
+
+  /* --- 4. Brand Accents (Customizable per brand) --- */
+  --accent: #b88c5a;                     /* SharkNetwork umbrella gold accent */
+  --accent-tacogroup: #d9682d;           /* TacoGroup terracotta accent */
+  --accent-sharklaw: #c9a36a;            /* SharkLaw refined brass accent */
+  --accent-acm: #b88a52;                 /* ACM warm ochre accent */
+}
+
+/* --- Optional Brand Specific Accent Selectors --- */
+[data-brand="tacogroup"] {
+  --accent: var(--accent-tacogroup);
+}
+
+[data-brand="sharklaw"] {
+  --accent: var(--accent-sharklaw);
+}
+
+[data-brand="acm"] {
+  --accent: var(--accent-acm);
+}
+

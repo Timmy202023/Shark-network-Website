@@ -4,18 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TacoGroup | SharkNetwork</title>
+    <link rel="stylesheet" href="theme.css" />
     <style>
-      :root {
-        --bg: #fff7ef;
-        --panel: #fffdfb;
-        --ink: #1d1a17;
-        --muted: #655d57;
-        --line: rgba(29, 26, 23, 0.14);
-        --accent: #d9682d;
-        --accent-soft: #f6d7bb;
-        --shadow: 0 18px 48px rgba(29, 26, 23, 0.08);
+      /* ==========================================================================
+         1. Design Tokens & Theme Variables
+         ========================================================================== */
+      /* Note: Core color tokens and palette variables are defined in theme.css */
+
+      /* ==========================================================================
+         2. Base & Reset Styles
+         ========================================================================== */
+      * {
+        box-sizing: border-box;
       }
-      * { box-sizing: border-box; }
+
       body {
         margin: 0;
         font-family: Inter, "Segoe UI", sans-serif;
@@ -23,80 +25,300 @@
         color: var(--ink);
         line-height: 1.6;
       }
-      a { color: inherit; text-decoration: none; }
-      .container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
-      .topbar {
-        position: sticky; top: 0; z-index: 10;
-        backdrop-filter: blur(12px); background: rgba(255,247,239,0.75);
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ==========================================================================
+         3. Layout Components
+         ========================================================================== */
+      .container {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 42px 0;
+      }
+
+      /* ==========================================================================
+         4. Navigation & Header
+         ========================================================================== */
+      .topbar,
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(12px);
+        background: var(--header-bg);
         border-bottom: 1px solid var(--line);
       }
+
       .nav {
-        min-height: 78px; display: flex; justify-content: space-between; align-items: center;
+        min-height: 78px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      .brand { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.78rem; font-weight: 700; }
-      .nav-links { display: flex; gap: 20px; color: var(--muted); font-size: 0.9rem; }
+
+      .brand {
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* ==========================================================================
+         5. Button Components
+         ========================================================================== */
+      .btn,
+      .button,
+      .secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        transition: all 180ms ease;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .btn-primary,
       .button {
-        display: inline-flex; align-items: center; justify-content: center;
-        border-radius: 999px; padding: 0.85rem 1.35rem; font-weight: 600;
-        border: 1px solid var(--ink); background: var(--ink); color: #fff; 
+        padding: 0.85rem 1.35rem;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--ink-contrast);
       }
+
+      .btn-primary:hover,
+      .button:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+      }
+
+      .btn-secondary,
+      .secondary {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        padding: 0.9rem 1.3rem;
+      }
+
+      .btn-secondary:hover,
+      .secondary:hover {
+        transform: translateY(-1px);
+      }
+
+      /* ==========================================================================
+         6. Hero Section
+         ========================================================================== */
       .hero {
         padding: 72px 0 32px;
       }
+
       .hero-grid {
-        display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: center;
       }
+
+      .hero-eyebrow,
       .eyebrow {
-        display: inline-block; padding: 0.45rem 0.75rem; border: 1px solid var(--line);
-        border-radius: 999px; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.68rem; color: var(--muted);
+        display: inline-block;
+        padding: 0.45rem 0.75rem;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.68rem;
+        color: var(--muted);
+        background: var(--eyebrow-bg);
       }
+
       h1 {
-        font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.94; letter-spacing: -0.06em;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        line-height: 0.94;
+        letter-spacing: -0.06em;
         margin: 22px 0 18px;
       }
-      p { color: var(--muted); font-size: 1.05rem; }
-      .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
-      .secondary {
-        background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 0.9rem 1.3rem; font-weight: 600;
+
+      p {
+        color: var(--muted);
+        font-size: 1.05rem;
       }
+
+      .hero-cta-row,
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .hero-visual,
       .visual {
-        min-height: 540px; position: relative; border-radius: 30px; overflow: hidden;
-        background: linear-gradient(135deg, #f3d9c7, #fffaf4 40%, #efcaa5);
-        border: 1px solid rgba(29,26,23,0.08); box-shadow: var(--shadow);
+        min-height: 540px;
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+        background: var(--visual-bg);
+        border: 1px solid rgba(29, 26, 23, 0.08);
+        box-shadow: var(--shadow);
       }
-      .visual::before, .visual::after {
-        content: ""; position: absolute; border-radius: 26px; border: 1px solid rgba(29,26,23,0.08);
-      }
-      .visual::before {
-        width: 230px; height: 310px; right: 14%; bottom: 13%; transform: rotate(16deg);
-        background: rgba(255,255,255,0.5);
-      }
+
+      .hero-visual::before,
+      .hero-visual::after,
+      .visual::before,
       .visual::after {
-        width: 180px; height: 220px; left: 16%; bottom: 18%; transform: rotate(-10deg);
-        background: rgba(255,255,255,0.48);
+        content: "";
+        position: absolute;
+        border-radius: 26px;
+        border: 1px solid var(--visual-shape-border);
+        background: var(--visual-shape-bg);
       }
-      .badge {
-        position: absolute; left: 18px; bottom: 18px; padding: 0.8rem 1rem; border-radius: 18px;
-        background: rgba(255,255,255,0.6); border: 1px solid rgba(29,26,23,0.08); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.76rem;
+
+      .hero-visual::before,
+      .visual::before {
+        width: 230px;
+        height: 310px;
+        right: 14%;
+        bottom: 13%;
+        transform: rotate(16deg);
       }
-      .section { padding: 42px 0; }
-      .grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+
+      .hero-visual::after,
+      .visual::after {
+        width: 180px;
+        height: 220px;
+        left: 16%;
+        bottom: 18%;
+        transform: rotate(-10deg);
+      }
+
+      /* ==========================================================================
+         7. Feature Cards & Grid
+         ========================================================================== */
+      .card-grid,
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .feature-card,
       .card {
-        padding: 24px; border-radius: 24px; background: rgba(255,255,255,0.35); border: 1px solid var(--line);
+        padding: 24px;
+        border-radius: 24px;
+        background: var(--card-bg);
+        border: 1px solid var(--line);
       }
-      .card h3 { margin: 0 0 10px; font-size: 1.5rem; letter-spacing: -0.04em; }
-      .label { color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.7rem; margin-bottom: 12px; }
+
+      .feature-card h3,
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 1.5rem;
+        letter-spacing: -0.04em;
+      }
+
+      .card-label,
+      .label {
+        display: inline-block;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.7rem;
+        margin-bottom: 12px;
+      }
+
+      /* ==========================================================================
+         8. Call-To-Action (CTA) Banner
+         ========================================================================== */
       .cta-panel {
-        margin-top: 24px; padding: clamp(24px, 4vw, 48px); border-radius: 28px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(246, 215, 187, 0.45)); border: 1px solid var(--line);
-        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        margin-top: 24px;
+        padding: clamp(24px, 4vw, 48px);
+        border-radius: 28px;
+        background: var(--cta-bg);
+        border: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
       }
-      footer { padding: 28px 0 60px; color: var(--muted); }
-      .footer-row { border-top: 1px solid var(--line); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; }
-      @media (max-width: 800px) { .hero-grid, .grid { grid-template-columns: 1fr; } .nav-links { display: none; } .cta-panel { flex-direction: column; align-items: flex-start; } }
+
+      .cta-panel h2 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        letter-spacing: -0.06em;
+      }
+
+      /* ==========================================================================
+         9. Site Footer
+         ========================================================================== */
+      footer {
+        padding: 28px 0 60px;
+        color: var(--muted);
+      }
+
+      .footer-row {
+        border-top: 1px solid var(--line);
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      /* ==========================================================================
+         10. Responsive Media Queries
+         ========================================================================== */
+      @media (max-width: 800px) {
+        .hero-grid,
+        .card-grid,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .cta-panel {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .nav {
+          min-height: 70px;
+        }
+
+        .hero-cta-row,
+        .cta-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn,
+        .button,
+        .secondary {
+          width: 100%;
+        }
+      }
     </style>
   </head>
-  <body>
+  <body data-brand="tacogroup">
+    <!-- Site Navigation Header -->
     <header class="topbar">
       <div class="container nav">
         <a href="index.html" class="brand">SharkNetwork</a>
@@ -106,58 +328,62 @@
           <a href="sharklaw.html">SharkLaw</a>
           <a href="acm.html">ACM</a>
         </nav>
-        <a href="mailto:hello@tacogroup.example" class="button">Order / Enquire</a>
+        <a href="mailto:hello@tacogroup.example" class="btn btn-primary">Order / Enquire</a>
       </div>
     </header>
 
     <main class="container">
+      <!-- Hero Section -->
       <section class="hero">
         <div class="hero-grid">
           <div>
-            <span class="eyebrow">Fresh • Fast • Familiar</span>
+            <span class="hero-eyebrow">Fresh • Fast • Familiar</span>
             <h1>TacoGroup.</h1>
             <p>From quick lunches to late-night favourites, TacoGroup brings vibrant food culture, warm service, and repeatable flavour to communities who like their meals memorable.</p>
-            <div class="cta-row">
-              <a href="mailto:hello@tacogroup.example" class="button">Book a catering enquiry</a>
-              <a href="index.html" class="secondary">Back to SharkNetwork</a>
+            <div class="hero-cta-row">
+              <a href="mailto:hello@tacogroup.example" class="btn btn-primary">Book a catering enquiry</a>
+              <a href="index.html" class="btn btn-secondary">Back to SharkNetwork</a>
             </div>
           </div>
-          <div class="visual" aria-label="TacoGroup illustration"></div>
+          <div class="hero-visual" aria-label="TacoGroup illustration"></div>
         </div>
       </section>
 
+      <!-- Feature Highlights Section -->
       <section class="section">
-        <div class="grid">
-          <article class="card">
-            <div class="label">Signature</div>
+        <div class="card-grid">
+          <article class="feature-card">
+            <span class="card-label">Signature</span>
             <h3>Bold flavour</h3>
             <p>Comfort-first recipes and fast-moving menu staples built for repeat customers and busy teams.</p>
           </article>
-          <article class="card">
-            <div class="label">Experience</div>
+          <article class="feature-card">
+            <span class="card-label">Experience</span>
             <h3>Casual energy</h3>
             <p>Warm hospitality, quick turnover, and a memorable atmosphere designed around community dining.</p>
           </article>
-          <article class="card">
-            <div class="label">Offers</div>
+          <article class="feature-card">
+            <span class="card-label">Offers</span>
             <h3>Events & catering</h3>
             <p>From office lunches to social gatherings, TacoGroup makes group food feel easy and exciting.</p>
           </article>
         </div>
       </section>
 
+      <!-- Call-To-Action (CTA) Section -->
       <section class="section">
         <div class="cta-panel">
           <div>
-            <div class="label">Let’s eat well together</div>
-            <h2 style="margin:0 0 8px; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing:-0.06em;">Big taste. Easy service.</h2>
+            <span class="card-label">Let’s eat well together</span>
+            <h2>Big taste. Easy service.</h2>
             <p>Tailored for teams, events, and everyday cravings.</p>
           </div>
-          <a href="mailto:hello@tacogroup.example" class="button">Contact TacoGroup</a>
+          <a href="mailto:hello@tacogroup.example" class="btn btn-primary">Contact TacoGroup</a>
         </div>
       </section>
     </main>
 
+    <!-- Site Footer -->
     <footer>
       <div class="container footer-row">
         <div class="brand">SharkNetwork</div>
